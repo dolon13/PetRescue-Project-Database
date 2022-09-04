@@ -1,3 +1,20 @@
+<?php 
+include('config.php');
+$id = $_GET['id'];
+    $sql = "SELECT * FROM pet_info WHERE id = '$id'";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+    $id = $row['id'];
+    $name = $row['pet_name'];
+    $age = $row['pet_age'];
+    $gender = $row['pet_gender'];
+    $owner = $row['pet_owner'];
+    $type = $row['pet_type'];
+    $adoption_status = $row['adoption_status'];
+    $decription = $row['medical_condition'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
@@ -10,29 +27,18 @@
 
     <title>pets</title>
 
-
-
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-
     <!-- Nucleo Icons -->
     <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-
     <!-- CSS Files -->
-
-
-
     <link id="pagestyle" href="./assets/css/material-kit.css?v=3.0.4" rel="stylesheet" />
-
-
 
 </head>
 
@@ -82,41 +88,41 @@
                 <div class="row">
                     <div class="col-12 mx-auto">
                         <div class="mt-n8 mt-md-n9 text-center">
-                            <img class="avatar avatar-xxl shadow-xl position-relative z-index-2"
-                                src="../assets/img/bruce-mars.jpg" alt="bruce" loading="lazy">
+                            <?php if($type == "Dog"){
+                                echo '<img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="./assets/img/dog.jpg" alt="bruce" loading="lazy">';
+                            }else{
+                                echo '<img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="./assets/img/cat.png" alt="novelty" loading="lazy">';
+                            } ?>
                         </div>
                         <div class="row py-5">
                             <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h3 class="mb-0">Michael Roven</h3>
+                                    <h3 class="mb-0"><?php echo $name; ?></h3>
                                     <div class="d-block">
-                                        <button type="button"
-                                            class="btn btn-sm btn-outline-info text-nowrap mb-0">Follow</button>
+                                    <?php if($adoption_status == "unadopted"){
+                                        echo "<span class='badge bg-danger text-white'>Unadopted</span>";
+                                    } else {
+                                        echo "<span class='badge bg-success text-white'>Adopted</span>";
+                                    }?>
                                     </div>
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-auto">
-                                        <span class="h6">323</span>
-                                        <span>Posts</span>
+                                        <span class="h6">Age</span>
+                                        <span><?php echo $age; ?></span>
                                     </div>
                                     <div class="col-auto">
-                                        <span class="h6">3.5k</span>
-                                        <span>Followers</span>
+                                        <span class="h6">Gender</span>
+                                        <span> <?php echo $gender; ?></span>
+
                                     </div>
                                     <div class="col-auto">
-                                        <span class="h6">260</span>
-                                        <span>Following</span>
+                                        <span class="h6">Owner</span>
+                                        <span><?php echo $owner; ?></span>
                                     </div>
                                 </div>
                                 <p class="text-lg mb-0">
-                                    Decisions: If you can’t decide, the answer is no.
-                                    If two equally difficult paths, choose the one more
-                                    painful in the short term (pain avoidance is creating
-                                    an illusion of equality). Choose the path that leaves
-                                    you more equanimous. <br><a href="javascript:;"
-                                        class="text-info icon-move-right">More about me
-                                        <i class="fas fa-arrow-right text-sm ms-1"></i>
-                                    </a>
+                                    <?php echo $decription; ?>
                                 </p>
                             </div>
                         </div>

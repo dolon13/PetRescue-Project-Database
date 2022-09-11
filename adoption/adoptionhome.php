@@ -14,38 +14,7 @@
 
 ?>
 
-<body class="index-page bg-gray-200">
-    <!-- -------- START HEADER 1 w/ text and image on right ------- -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-absolute bg-transparent shadow-none">
-            <div class="container">
-                <a href="index.php" class="navbar-brand" style="font-size: 24px;"><span
-                        style="color: red;">P</span>etS</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header-2"
-                    aria-controls="navbar-header-2" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar-header-2">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="javascript:;">
-                                Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="javascript:;">
-                                About Us
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="javascript:;">
-                                Contact Us
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
         <div class="page-header min-vh-100" style="background-image: url(&#39;./assets/img/examples/pets.jpg&#39;);"
             loading="lazy">
             <span class="mask bg-gradient-dark opacity-5"></span>

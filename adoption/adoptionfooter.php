@@ -1,16 +1,26 @@
 <footer class="footer pt-5 mt-5">
-  <div class="container">
-    <div class=" row">
-      <div class="col-12">
-        <div class="text-center">
-          <p class="text-dark my-4 text-sm font-weight-normal">
-            All rights reserved. Copyright © <script>document.write(new Date().getFullYear())</script> <span style="color: red;">P</span>etS <a href="#" target="_blank"></a>.
-          </p>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12 mb-lg text-center">
+          <div>
+            <a href="https://www.creative-tim.com/product/material-kit-pro">
+              <img src="assets/img/cat.png" class="mb-3 footer-logo" alt="main_logo">
+            </a>
+            <h6 class="font-weight-bolder mb-4">Powered By Material Kit Pro</h6>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="text-center">
+            <p class="text-dark my-4 text-sm font-weight-normal">
+              All rights reserved. Copyright © <script>
+                document.write(new Date().getFullYear())
+              </script> Pets.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 <!--   Core JS Files   -->
 <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -61,7 +71,7 @@
 <!--  Google Maps Plugin    -->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-<script src="./assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
+<script src="assets/js/material-kit-pro.min2513.js?v=3.0.0" type="text/javascript"></script>
 
 
 <script type="text/javascript">

@@ -41,7 +41,7 @@
     <nav
         class="navbar navbar-expand-lg blur border-radius-xl position-absolute my-3 top-0 border-bottom py-3 z-index-3 shadow my-3 py-2 start-0 end-0 mx-4">
         <div class="container">
-          <a class="navbar-brand" href="index.php" rel="tooltip" title="Rescue and Rehabitation" data-placement="bottom" target="_blank">
+          <a class="navbar-brand" href="../index.php" rel="tooltip" title="Rescue and Rehabitation" data-placement="bottom" target="_blank">
           <span class="pt-3 mt-n5" style="color: red;">P</span>etS
           </a>
           
@@ -57,7 +57,7 @@
           <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
             <ul class="navbar-nav navbar-nav-hover mx-auto">
               <li class="nav-item mx-2">
-                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button" href="adoption/adoptionhome.php">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button" href="adoptionhome.php">
                   Looking For Adoption?
                 </a>
               </li>

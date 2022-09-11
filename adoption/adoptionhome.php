@@ -4,7 +4,7 @@
         $type = $_POST['type'];
         $type = strtolower($type);
         $type = ucfirst($type);
-        $sql = "SELECT * FROM pet_info WHERE pet_type = '".$type."'";
+        $sql = "SELECT * FROM pet_info WHERE (pet_type like '%".$type."%') or (address like '%".$type."%')";
         $result = mysqli_query($conn,$sql);
       } else
       {
@@ -17,7 +17,7 @@
 
         <div class="page-header min-vh-100" style="background-image: url(&#39;./assets/img/examples/pets.jpg&#39;);"
             loading="lazy">
-            <span class="mask bg-gradient-dark opacity-5"></span>
+            <span class="mask bg-gradient-dark opacity-9"></span>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-7 d-flex justify-content-center flex-column">
@@ -27,8 +27,8 @@
                                 <div class="col-8">
 
                                     <div class="input-group input-group-outline">
-                                        <label class="form-label">Text Here...</label>
-                                        <input type="text" name='type' class="form-control mb-sm-0">
+                                        <label class="form-label">Location/Animal Type</label>
+                                        <input type="text" name='type' class="form-control mb-sm-0 text-primary">
                                     </div>
                                     <!-- <br> -->
                                     <!-- <div class="input-group input-group-outline">

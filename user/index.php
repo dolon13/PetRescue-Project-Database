@@ -1,4 +1,7 @@
 <?php
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,18 +46,18 @@
             </div>
           </div>
           <div class="card-body">
-            <form role="form" class="text-start">
+            <form role="form" class="text-start" action="login_check.php" method = "post">
               <div class="input-group input-group-static mb-4">
                 <label>Email</label>
-                <input type="email" class="form-control" placeholder="john@email.com">
+                <input type="email" name = "email" class="form-control" placeholder="john@email.com">
               </div>
               <div class="input-group input-group-static mb-4">
                 <label>Password</label>
-                <input type="password" class="form-control" placeholder="•••••••••••••">
+                <input type="password" name="pass" class="form-control" placeholder="•••••••••••••">
               </div>
               
               <div class="text-center">
-                <button type="button" class="btn bg-gradient-secondary w-100 mt-3 mb-0">Sign in</button>
+                <button type="submit" name="submit" class="btn bg-gradient-secondary w-100 mt-3 mb-0">Sign in</button>
               </div>
             </form>
           </div>

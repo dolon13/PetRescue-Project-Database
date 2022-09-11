@@ -43,21 +43,21 @@
             </div>
           </div>
           <div class="card-body pb-3">
-            <form role="form">
+            <form role="form" action="sigup_data.php" method="POST">
               <div class="input-group input-group-outline mb-3">
                 <label class="form-label">Name</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name = "name">
               </div>
               <div class="input-group input-group-outline mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control">
+                <input type="email" class="form-control" name = "email">
               </div>
               <div class="input-group input-group-outline mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control">
+                <input type="password" class="form-control" name = "pass">
               </div>
               <div class="text-center">
-                <button type="button" class="btn bg-gradient-secondary w-100 mt-4 mb-0">Sign up</button>
+                <button type="submit" class="btn bg-gradient-secondary w-100 mt-4 mb-0" name='submit'>Sign up</button>
               </div>
             </form>
           </div>

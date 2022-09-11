@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2022 at 10:10 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Sep 11, 2022 at 05:03 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `pets`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `for_review`
+--
+
+CREATE TABLE `for_review` (
+  `id` int(11) NOT NULL,
+  `fname` varchar(50) DEFAULT NULL,
+  `lname` varchar(50) DEFAULT NULL,
+  `email` varchar(200) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `details` text DEFAULT NULL,
+  `status` varchar(10) DEFAULT 'unchecked'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `for_review`
+--
+
+INSERT INTO `for_review` (`id`, `fname`, `lname`, `email`, `phone`, `details`, `status`) VALUES
+(1, 'Md', 'Robiuddin', 'mrrobi040@gmail.com', '01319430780', 'tetststets', 'unchecked');
 
 -- --------------------------------------------------------
 
@@ -51,16 +73,41 @@ INSERT INTO `pet_info` (`id`, `pet_name`, `pet_age`, `pet_photo`, `pet_gender`, 
 (2, 'Minu', '3 Year', NULL, 'Female', 'Cat', 'Joya', '01500000000', 'Aftabnagar, Rampura', 'Stray Cat not vaccinated.', 'unadopted'),
 (3, 'Mimo', '2 Year', NULL, 'Female', 'Cat', 'Joya', '01500000000', 'Aftabnagar, Rampura', 'Stray Cat not vaccinated.', 'unadopted'),
 (4, 'Pickachu', '5 year', NULL, 'Male', 'Cat', 'Alif', '01500000000', 'Uttor Madani Nagar, Narayanganj Sadar', 'Stray Cat', 'unadopted'),
-(5, 'Pickachu_jr', '3 month', NULL, 'Female', 'Dog', 'Alif', '01500000000', 'Uttor Madani Nagar, Narayanganj Sadar', 'Stray Dog', 'unadopted');
+(5, 'Pickachu_jr', '3 month', NULL, 'Female', 'Cat', 'Alif', '01500000000', 'Uttor Madani Nagar, Narayanganj Sadar', 'Stray Cat', 'unadopted');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` text NOT NULL,
+  `email` text NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `for_review`
+--
+ALTER TABLE `for_review`
+  ADD PRIMARY KEY (`email`) USING BTREE;
+
+--
 -- Indexes for table `pet_info`
 --
 ALTER TABLE `pet_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -72,6 +119,12 @@ ALTER TABLE `pet_info`
 --
 ALTER TABLE `pet_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

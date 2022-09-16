@@ -107,6 +107,7 @@ if(isset($_GET['id'])){
                             </div>
                             <div class="card-body">
                                 <form action='update_pet_info.php' method='POST'>
+                                    <input type='hidden' name='id' value="<?php echo $pet['id']; ?>" >
                                     <div class="row">
                                         <div class="col-md-5 pr-1">
                                             <div class="form-group">

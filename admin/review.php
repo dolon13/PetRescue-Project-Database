@@ -5,7 +5,7 @@ if($_SESSION['status']!='logged'){
     header('location: ../index.php');
 }
 include "../adoption/config.php";
-$sql = 'SELECT * FROM pet_info';
+$sql = 'SELECT * FROM for_review';
 $result = mysqli_query($conn,$sql);
 ?>
 
@@ -106,13 +106,13 @@ $result = mysqli_query($conn,$sql);
                                     <table class="table">
                                         <thead class=" text-primary">
                                             <th>
-                                                Name
+                                                First Name
                                             </th>
                                             <th>
-                                                Age
+                                                Last Name
                                             </th>
                                             <th>
-                                                Address
+                                                Phone
                                             </th>
                                             <th>
                                                 Status
@@ -125,19 +125,19 @@ $result = mysqli_query($conn,$sql);
                                             <?php while($pet = mysqli_fetch_assoc($result)){?>
                                             <tr>
                                                 <td>
-                                                    <?php echo $pet['pet_name']; ?>
+                                                    <?php echo $pet['fname']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $pet['pet_age']; ?>
+                                                    <?php echo $pet['lname']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $pet['address']; ?>
+                                                    <?php echo $pet['phone']; ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $pet['adoption_status']; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="update_pets.php?id=<?php echo $pet['id'];?>" class="btn btn-secondary btn-block"> Update </a>
+                                                    <a href="update_review.php?id=<?php echo $pet['id'];?>" class="btn btn-secondary btn-block"> Update </a>
                                             </tr>
                                             <?php } ?>
                                         </tbody>

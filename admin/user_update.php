@@ -5,18 +5,12 @@ if($_SESSION['status']!='logged'){
     header('location: ../index.php');
 }
 include "../adoption/config.php";
-$sql = 'SELECT count(*) AS total FROM pet_info';
-$result = mysqli_query($conn,$sql);
-$total_pet = mysqli_fetch_assoc($result);
-
-$sql = 'SELECT count(*) AS total FROM users';
-$result = mysqli_query($conn,$sql);
-$total_users = mysqli_fetch_assoc($result);
-
-$sql = 'SELECT count(*) AS total FROM for_review';
-$result = mysqli_query($conn,$sql);
-$total_pending = mysqli_fetch_assoc($result);
-
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $sql = 'SELECT * FROM users WHERE id = '.$id;
+    $result = mysqli_query($conn,$sql);
+    $pet = mysqli_fetch_assoc($result);
+}
 ?>
 
 <body class="">
@@ -24,10 +18,6 @@ $total_pending = mysqli_fetch_assoc($result);
         <div class="sidebar" data-color="white" data-active-color="danger">
             <div class="logo">
                 <a href="https://www.creative-tim.com" class="simple-text logo-mini">
-                    <!-- <div class="logo-image-small">
-            <img src="./assets/img/logo-small.png">
-          </div> -->
-                    <!-- <p>CT</p> -->
                 </a>
                 <a class="navbar-brand" href="../index.php" rel="tooltip" title="Rescue and Rehabitation"
                     data-placement="bottom" target="_blank">
@@ -36,28 +26,28 @@ $total_pending = mysqli_fetch_assoc($result);
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="active ">
-                        <a href="javascript:;">
+                    <li>
+                        <a href="index.php">
                             <i class="nc-icon nc-paper"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="profile.php">
+                        <a href="javascript:;">
                             <i class="nc-icon nc-single-02"></i>
                             <p>Profile</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="add_pets.php">
+                    <li class="active ">
+                        <a href="javascript:;">
                             <i class="nc-icon nc-pin-3"></i>
-                            <p>Add Pets For Adoption</p>
+                            <p>Update User</p>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="main-panel" style="height: 100vh;">
+        <div class="main-panel">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
                 <div class="container-fluid">
@@ -110,90 +100,63 @@ $total_pending = mysqli_fetch_assoc($result);
             <!-- End Navbar -->
             <div class="content">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-body ">
-                                <div class="row">
-                                    <div class="col-5 col-md-4">
-                                        <div class="icon-big text-center icon-warning">
-                                            <i class="nc-icon nc-favourite-28 text-warning"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-7 col-md-8">
-                                        <div class="numbers">
-                                            <p class="card-category">Pets</p>
-                                            <p class="card-title"><?php echo $total_pet['total']; ?>
-                                            <p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-md-8">
+                        <div class="card card-user">
+                            <div class="card-header">
+                                <h5 class="card-title">Edit Profile</h5>
                             </div>
-                            <div class="card-footer ">
-                                <hr>
-                                <div class="stats">
-                                    <i class="fa fa-refresh"></i>
-                                     <a href="pets.php">Update/delete Pets</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-body ">
-                                <div class="row">
-                                    <div class="col-5 col-md-4">
-                                        <div class="icon-big text-center icon-warning">
-                                            <i class="nc-icon nc-single-02 text-success"></i>
+                            <div class="card-body">
+                                <form action='update_user_role.php' method='POST'>
+                                    <input type='hidden' name='id' value="<?php echo $pet['id']; ?>">
+                                    <div class="row">
+                                        <div class="col-md-5 pr-1">
+                                            <div class="form-group">
+                                                <label>Company (disabled)</label>
+                                                <input type="text" class="form-control" disabled=""
+                                                    placeholder="Company" value="Pets">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 px-1">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <input type="text" name='name' disabled="" class="form-control"
+                                                    placeholder="Username" value="<?php echo $pet['name']; ?>">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-7 col-md-8">
-                                        <div class="numbers">
-                                            <p class="card-category">Users</p>
-                                            <p class="card-title"><?php echo $total_users['total']; ?>
-                                            <p>
+                                    <div class="row">
+                                        <div class="col-md-6 pr-1">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" name='owner' disabled="" class="form-control"
+                                                    placeholder="Company" value="<?php echo $pet['email']; ?>">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="card-footer ">
-                                <hr>
-                                <div class="stats">
-                                    <i class="fa fa-lock"></i>
-                                    <a href="users.php">Block/Unblock User</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-body ">
-                                <div class="row">
-                                    <div class="col-5 col-md-4">
-                                        <div class="icon-big text-center icon-warning">
-                                            <i class="nc-icon nc-vector text-danger"></i>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Role</label>
+                                                <select name="role" id="role">
+                                                    <option value="">Select</option>
+                                                    <option value="Admin">Admin</option>
+                                                    <option value="Moderator">Moderator</option>
+                                                    <option value="inactive">Disable</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-7 col-md-8">
-                                        <div class="numbers">
-                                            <p class="card-category">Pending Review</p>
-                                            <p class="card-title"><?php echo $total_pending['total']; ?>
-                                            <p>
+
+                                    <div class="row">
+                                        <div class="update ml-auto mr-auto">
+                                            <button type="submit" name='submit' class="btn btn-primary btn-round">Update
+                                                Role</button>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="card-footer ">
-                                <hr>
-                                <div class="stats">
-                                    <i class="fa fa-clock-o"></i>
-                                     <a href="#">Review</a>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-        <?php include "includes/footer.php"; ?>
+            <?php include "includes/footer.php"; ?>

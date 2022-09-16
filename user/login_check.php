@@ -12,10 +12,12 @@
             echo "Login successfull Thank you";
             $row = mysqli_fetch_assoc($result);
             $_SESSION['name'] = $row['name'];
+            $_SESSION['email'] = $row['email'];
             $_SESSION['status'] = "logged";
             $_SESSION['role'] = $row['role'];
             header('location: ../admin/');
         }else{
+            header("location: index.php");
         }
     }
     ?>

@@ -5,12 +5,7 @@ if($_SESSION['status']!='logged'){
     header('location: ../index.php');
 }
 include "../adoption/config.php";
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
-    $sql = 'SELECT * FROM pet_info WHERE id = '.$id;
-    $result = mysqli_query($conn,$sql);
-    $pet = mysqli_fetch_assoc($result);
-}
+
 ?>
 
 <body class="">
@@ -41,7 +36,7 @@ if(isset($_GET['id'])){
                     <li class="active ">
                         <a href="javascript:;">
                             <i class="nc-icon nc-pin-3"></i>
-                            <p>Update Pets</p>
+                            <p>Add Pets</p>
                         </a>
                     </li>
                 </ul>
@@ -103,55 +98,66 @@ if(isset($_GET['id'])){
                     <div class="col-md-8">
                         <div class="card card-user">
                             <div class="card-header">
-                                <h5 class="card-title">Edit Pets</h5>
+                                <h5 class="card-title">Add Pets</h5>
                             </div>
                             <div class="card-body">
-                                <form action='update_pet_info.php' method='POST'>
-                                    <input type='hidden' name='id' value="<?php echo $pet['id']; ?>" >
+                                <form action='add_pet_info.php' method='POST'>
                                     <div class="row">
                                         <div class="col-md-5 pr-1">
                                             <div class="form-group">
-                                                <label>Company (disabled)</label>
-                                                <input type="text" class="form-control" disabled=""
-                                                    placeholder="Company" value="Pets">
+                                                <label>Pet Name</label>
+                                                <input type="text" class="form-control" name='pet_name' >
                                             </div>
                                         </div>
                                         <div class="col-md-3 px-1">
                                             <div class="form-group">
-                                                <label>Pet Name</label>
-                                                <input type="text" name='name' class="form-control" placeholder="Username"
-                                                    value="<?php echo $pet['pet_name']; ?>">
+                                                <label>Pet Gender</label>
+                                                <select name="pet_gender" id="role">
+                                                    <option value="">Select</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Age</label>
-                                                <input type="text" name='age' class="form-control" placeholder="<?php echo $pet['pet_age']; ?>">
+                                                <input type="text" name='age' class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6 pr-1">
+                                        <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Owner Name</label>
-                                                <input type="text" name='owner' class="form-control" placeholder="Company"
-                                                    value="<?php echo $pet['pet_owner']; ?>">
+                                                <input type="text" name='owner' class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-6 pl-1">
+                                        <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Owner Contact No.</label>
-                                                <input type="text" name='owner_no' class="form-control" placeholder="Last Name"
-                                                    value="<?php echo $pet['contact_no']; ?>">
+                                                <input type="text" name='owner_no' class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 pl-1">
+                                            <div class="form-group">
+                                                <label>Type</label>
+                                                <select name="type" id="role">
+                                                    <option value="">Select</option>
+                                                    <option value="Cat">Cat</option>
+                                                    <option value="Dog">Dog</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
                                                 <textarea name='address'
-                                                    class="form-control textarea"> <?php echo $pet['address']; ?> </textarea>
+                                                    class="form-control textarea"> </textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -159,16 +165,15 @@ if(isset($_GET['id'])){
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Medical Condition</label>
+                                                <label>Medical Condition / About</label>
                                                 <textarea name='medical'
-                                                    class="form-control textarea"><?php echo $pet['medical_condition']; ?></textarea>
+                                                    class="form-control textarea"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="update ml-auto mr-auto">
-                                            <button type="submit" name='submit' class="btn btn-primary btn-round">Update
-                                                Profile</button>
+                                            <button type="submit" name='submit' class="btn btn-primary btn-round">Add</button>
                                         </div>
                                     </div>
                                 </form>

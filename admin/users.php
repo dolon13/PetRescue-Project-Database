@@ -5,7 +5,7 @@ if($_SESSION['status']!='logged'){
     header('location: ../index.php');
 }
 include "../adoption/config.php";
-$sql = 'SELECT * FROM pet_info';
+$sql = 'SELECT * FROM users';
 $result = mysqli_query($conn,$sql);
 ?>
 
@@ -37,7 +37,7 @@ $result = mysqli_query($conn,$sql);
                     <li class="active ">
                         <a href="javascript:;">
                             <i class="nc-icon nc-pin-3"></i>
-                            <p>Pets Table</p>
+                            <p>Users</p>
                         </a>
                     </li>
                 </ul>
@@ -99,7 +99,7 @@ $result = mysqli_query($conn,$sql);
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> Pets Table</h4>
+                                <h4 class="card-title"> Users Table</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -109,13 +109,10 @@ $result = mysqli_query($conn,$sql);
                                                 Name
                                             </th>
                                             <th>
-                                                Age
+                                                email
                                             </th>
                                             <th>
-                                                Address
-                                            </th>
-                                            <th>
-                                                Status
+                                                role
                                             </th>
                                             <th>
                                                 Action
@@ -125,19 +122,16 @@ $result = mysqli_query($conn,$sql);
                                             <?php while($pet = mysqli_fetch_assoc($result)){?>
                                             <tr>
                                                 <td>
-                                                    <?php echo $pet['pet_name']; ?>
+                                                    <?php echo $pet['name']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $pet['pet_age']; ?>
+                                                    <?php echo $pet['email']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $pet['address']; ?>
+                                                    <?php echo $pet['role']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $pet['adoption_status']; ?>
-                                                </td>
-                                                <td>
-                                                    <a href="update_pets.php?id=<?php echo $pet['id'];?>" class="btn btn-secondary btn-block"> Update </a>
+                                                    <a href="user_update.php?id=<?php echo $pet['id']; ?>" <?php if($pet['email']==$_SESSION['email']){ echo "disabled=''";}?> class="btn btn-secondary btn-block"> Update </a>
                                             </tr>
                                             <?php } ?>
                                         </tbody>

@@ -186,7 +186,7 @@ $total_pending = mysqli_fetch_assoc($result);
                                 <hr>
                                 <div class="stats">
                                     <i class="fa fa-clock-o"></i>
-                                     <a href="#">Review</a>
+                                     <a href="review.php">Review</a>
                                 </div>
                             </div>
                         </div>

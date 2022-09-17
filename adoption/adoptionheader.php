@@ -83,7 +83,7 @@
             <ul class="navbar-nav d-lg-block d-none">
               <li class="nav-item">
                 
-                <a href="#" class="btn btn-sm  bg-gradient-secondary  mb-0 me-1" role="button">Be a savior</a>
+              <a href="../user/" class="btn btn-sm  bg-gradient-secondary  mb-0 me-1" role="button">Be a savior</a>
                 
               </li>
             </ul>

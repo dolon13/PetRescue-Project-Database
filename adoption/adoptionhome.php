@@ -65,6 +65,11 @@
                 <div class="col-lg-4 p-4">
                     <div class="card">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <?php if($row['adoption_status'] == "unadopted"){
+                                    echo "<span class='badge bg-danger text-white'>Unadopted</span>";
+                            } else {
+                                    echo "<span class='badge bg-success text-white'>Adopted</span>";
+                            }?>
                             <a class="d-block blur-shadow-image">
                                 <?php if ($row['pet_type']=='Dog'){
                                    echo '<img src="./assets/img/dog.jpg" alt="img-colored-shadow" class="img-fluid border-radius-lg">';
@@ -90,6 +95,7 @@
                             </p>
                             <a type="button" href="petinformation.php?id=<?php echo $row['id']; ?>"
                                 class="btn bg-gradient-info btn-sm mb-0 mt-3">Find out more</a>
+                            
                         </div>
                     </div>
                 </div>

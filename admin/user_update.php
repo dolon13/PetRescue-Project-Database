@@ -137,7 +137,7 @@ if(isset($_GET['id'])){
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Role</label>
-                                                <select name="role" id="role">
+                                                <select name="role" id="role" class="form-control">
                                                     <option value="">Select</option>
                                                     <option value="Admin">Admin</option>
                                                     <option value="Moderator">Moderator</option>

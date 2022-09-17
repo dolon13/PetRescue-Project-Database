@@ -5,7 +5,7 @@ if($_SESSION['status']!='logged'){
     header('location: ../index.php');
 }
 include "../adoption/config.php";
-$sql = 'SELECT * FROM for_review';
+$sql = "SELECT r.id,r.fname,r.lname,r.phone,r.status,p.id as pet_id,p.pet_name,p.pet_owner,p.contact_no FROM for_review as r JOIN pet_info as p ON(pet_id=p.id);";
 $result = mysqli_query($conn,$sql);
 ?>
 
@@ -37,7 +37,7 @@ $result = mysqli_query($conn,$sql);
                     <li class="active ">
                         <a href="javascript:;">
                             <i class="nc-icon nc-pin-3"></i>
-                            <p>Pets Table</p>
+                            <p>Pet Parents</p>
                         </a>
                     </li>
                 </ul>
@@ -99,7 +99,7 @@ $result = mysqli_query($conn,$sql);
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> Pets Table</h4>
+                                <h4 class="card-title">Would Be Parents</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -118,6 +118,15 @@ $result = mysqli_query($conn,$sql);
                                                 Status
                                             </th>
                                             <th>
+                                                Pet name
+                                            </th>
+                                            <th>
+                                                curr_owner
+                                            </th>
+                                            <th>
+                                                curr_owner_no
+                                            </th>
+                                            <th>
                                                 Action
                                             </th>
                                         </thead>
@@ -134,10 +143,19 @@ $result = mysqli_query($conn,$sql);
                                                     <?php echo $pet['phone']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $pet['adoption_status']; ?>
+                                                    <?php echo $pet['status']; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="update_review.php?id=<?php echo $pet['id'];?>" class="btn btn-secondary btn-block"> Update </a>
+                                                    <?php echo $pet['pet_name']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $pet['pet_owner']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $pet['contact_no']; ?>
+                                                </td>
+                                                <td>
+                                                    <a href="update_review.php?id=<?php echo $pet['id'];?>&pet_id=<?php echo $pet['pet_id'];?>" class="btn btn-secondary btn-block"> Update </a>
                                             </tr>
                                             <?php } ?>
                                         </tbody>

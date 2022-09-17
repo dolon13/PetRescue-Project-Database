@@ -9,7 +9,8 @@ if(isset($_POST['submit'])){
     $contact = $_POST['owner_no'];
     $address = $_POST['address'];
     $medical = $_POST['medical'];
-    $sql = "UPDATE pet_info SET pet_name='$name',pet_age='$age',pet_owner='$owner',contact_no='$contact',address='$address',medical_condition='$medical' WHERE id='$id' ";
+    $type = $_POST['type'];
+    $sql = "UPDATE pet_info SET pet_type ='$type', pet_name='$name',pet_age='$age',pet_owner='$owner',contact_no='$contact',address='$address',medical_condition='$medical' WHERE id='$id' ";
     
     $result = mysqli_query($conn,$sql);
     if($result==1){

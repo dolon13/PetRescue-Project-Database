@@ -28,11 +28,11 @@ if(isset($_GET['id'])){
                 <ul class="nav">
                     <li>
                         <a href="index.php">
-                        <i class="nc-icon nc-paper"></i>
+                            <i class="nc-icon nc-paper"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="javascript:;">
                             <i class="nc-icon nc-single-02"></i>
                             <p>Profile</p>
@@ -103,30 +103,38 @@ if(isset($_GET['id'])){
                     <div class="col-md-8">
                         <div class="card card-user">
                             <div class="card-header">
-                                <h5 class="card-title">Edit Pets</h5>
+                                <div class='row'>
+                                    <h5 class="card-title">Edit Pets</h5>
+                                    <a href ="delete.php?id=<?php echo $pet['id']; ?>" class="btn btn-danger btn-round">Delete</a>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <form action='update_pet_info.php' method='POST'>
-                                    <input type='hidden' name='id' value="<?php echo $pet['id']; ?>" >
+                                    <input type='hidden' name='id' value="<?php echo $pet['id']; ?>">
                                     <div class="row">
-                                        <div class="col-md-5 pr-1">
-                                            <div class="form-group">
-                                                <label>Company (disabled)</label>
-                                                <input type="text" class="form-control" disabled=""
-                                                    placeholder="Company" value="Pets">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 px-1">
+                                        <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>Pet Name</label>
-                                                <input type="text" name='name' class="form-control" placeholder="Username"
-                                                    value="<?php echo $pet['pet_name']; ?>">
+                                                <input type="text" name='name' class="form-control"
+                                                    placeholder="Username" value="<?php echo $pet['pet_name']; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Age</label>
-                                                <input type="text" name='age' class="form-control" placeholder="<?php echo $pet['pet_age']; ?>">
+                                                <input type="text" name='age' class="form-control"
+                                                    value="<?php echo $pet['pet_age']; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Type</label>
+                                                <select name="type" id="role" class="form-control">
+                                                    <option value="">Select</option>
+                                                    <option value="Cat">Cat</option>
+                                                    <option value="Dog">Dog</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -134,15 +142,15 @@ if(isset($_GET['id'])){
                                         <div class="col-md-6 pr-1">
                                             <div class="form-group">
                                                 <label>Owner Name</label>
-                                                <input type="text" name='owner' class="form-control" placeholder="Company"
-                                                    value="<?php echo $pet['pet_owner']; ?>">
+                                                <input type="text" name='owner' class="form-control"
+                                                    placeholder="Company" value="<?php echo $pet['pet_owner']; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6 pl-1">
                                             <div class="form-group">
                                                 <label>Owner Contact No.</label>
-                                                <input type="text" name='owner_no' class="form-control" placeholder="Last Name"
-                                                    value="<?php echo $pet['contact_no']; ?>">
+                                                <input type="text" name='owner_no' class="form-control"
+                                                    placeholder="Last Name" value="<?php echo $pet['contact_no']; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +163,7 @@ if(isset($_GET['id'])){
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">

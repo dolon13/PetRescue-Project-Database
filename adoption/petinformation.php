@@ -1,7 +1,7 @@
 <?php 
 include('config.php');
 include('adoptionheader.php');
-$id = $_GET['id'];
+    $id = $_GET['id'];
     $sql = "SELECT * FROM pet_info WHERE id = '$id'";
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_assoc($result);
@@ -71,14 +71,17 @@ $id = $_GET['id'];
         </div>
     </section>
 
-
+    <?php if($adoption_status == "unadopted"){ ?>
+                                    
     <section>
         <div class="container py-4">
             <div class="row">
                 <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
-                    <h3 class="text-center">Want To Adopt <?php if($gender=="Female") echo "Her"; else echo "Him"; ?></h3>
+                    <h3 class="text-center">Want To Adopt <?php if($gender=="Female") echo "Her"; else echo "Him"; ?>
+                    </h3>
                     <form role="form" action="sendforreview.php" id="contact-form" method="post" autocomplete="off">
-                        <div class="card-body">
+                    <input type='hidden' name='id' value="<?php echo $id; ?>">    
+                    <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group input-group-dynamic mb-4">
@@ -89,8 +92,8 @@ $id = $_GET['id'];
                                 <div class="col-md-6 ps-2">
                                     <div class="input-group input-group-dynamic">
                                         <label class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" placeholder=""
-                                            aria-label="Last Name..." name="lname">
+                                        <input type="text" class="form-control" placeholder="" aria-label="Last Name..."
+                                            name="lname">
                                     </div>
                                 </div>
                             </div>
@@ -108,13 +111,14 @@ $id = $_GET['id'];
                             </div>
                             <div class="input-group mb-4 input-group-static">
                                 <label>
-                                    Tell Us About Your Home 
+                                    Tell Us About Your Home
                                 </label>
                                 <textarea name="details" class="form-control" id="message" rows="4"></textarea>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn bg-gradient-secondary w-100" name="submit">Apply For Assesment</button>
+                                    <button type="submit" class="btn bg-gradient-secondary w-100" name="submit">Apply
+                                        For Assesment</button>
                                 </div>
                             </div>
                         </div>
@@ -123,6 +127,7 @@ $id = $_GET['id'];
             </div>
         </div>
     </section>
+    <?php }?>
 </div>
 <!-- footer section -->
 <?php include "adoptionfooter.php"; ?>

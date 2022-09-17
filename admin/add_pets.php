@@ -112,7 +112,7 @@ include "../adoption/config.php";
                                         <div class="col-md-3 px-1">
                                             <div class="form-group">
                                                 <label>Pet Gender</label>
-                                                <select name="pet_gender" id="role">
+                                                <select name="pet_gender" id="role" class="form-control">
                                                     <option value="">Select</option>
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
@@ -142,7 +142,7 @@ include "../adoption/config.php";
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Type</label>
-                                                <select name="type" id="role">
+                                                <select name="type" id="role" class="form-control">
                                                     <option value="">Select</option>
                                                     <option value="Cat">Cat</option>
                                                     <option value="Dog">Dog</option>

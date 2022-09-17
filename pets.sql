@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2022 at 07:01 AM
+-- Generation Time: Sep 17, 2022 at 08:14 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -34,6 +34,7 @@ CREATE TABLE `for_review` (
   `email` varchar(200) NOT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `details` text DEFAULT NULL,
+  `pet_id` int(11) NOT NULL,
   `status` varchar(10) DEFAULT 'unchecked'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,8 +42,9 @@ CREATE TABLE `for_review` (
 -- Dumping data for table `for_review`
 --
 
-INSERT INTO `for_review` (`id`, `fname`, `lname`, `email`, `phone`, `details`, `status`) VALUES
-(1, 'Md', 'Robiuddin', 'mrrobi040@gmail.com', '01319430780', 'tetststets', 'unchecked');
+INSERT INTO `for_review` (`id`, `fname`, `lname`, `email`, `phone`, `details`, `pet_id`, `status`) VALUES
+(0, 'Md', 'Robiuddin', 'mrrobi040@gmail.com', '01319430780', 'Really Cat Friendly Home has 5 cats of our own', 2, 'Qualified'),
+(0, 'Md', 'Robiuddin', 'mrrobi040@gmail.com', '01319430780', 'Nice PEt environment', 5, 'Qualified');
 
 -- --------------------------------------------------------
 
@@ -69,11 +71,11 @@ CREATE TABLE `pet_info` (
 --
 
 INSERT INTO `pet_info` (`id`, `pet_name`, `pet_age`, `pet_photo`, `pet_gender`, `pet_type`, `pet_owner`, `contact_no`, `address`, `medical_condition`, `adoption_status`) VALUES
-(1, 'Meow', '3 Year', NULL, 'Male', 'Cat', 'Joya', '01500000000', 'Aftabnagar, Rampura', 'Stray Cat not vaccinated.', 'unadopted'),
-(2, 'Minu', '3 Year', NULL, 'Female', 'Cat', 'Joya', '01500000000', 'Aftabnagar, Rampura', 'Stray Cat not vaccinated.', 'unadopted'),
+(1, 'Meow', '3 years', NULL, 'Male', 'Cat', 'Joya', '01500000000', '   Aftabnagar, Rampura   ', 'Stray Cat not vaccinated. fluffy tail', 'unadopted'),
+(2, 'Minu', '3 Year', NULL, 'Female', 'Cat', 'Joya', '01500000000', 'Aftabnagar, Rampura', 'Stray Cat not vaccinated.', 'adopted'),
 (3, 'Mimo', '2 Year', NULL, 'Female', 'Cat', 'Joya', '01500000000', 'Aftabnagar, Rampura', 'Stray Cat not vaccinated.', 'unadopted'),
 (4, 'Pickachu', '5 year', NULL, 'Male', 'Cat', 'Alif', '01500000000', 'Uttor Madani Nagar, Narayanganj Sadar', 'Stray Cat', 'unadopted'),
-(5, 'Pickachu_jr', '3 month', NULL, 'Female', 'Cat', 'Alif', '01500000000', 'Uttor Madani Nagar, Narayanganj Sadar', 'Stray Cat', 'unadopted');
+(5, 'Pickachu_jr', '3 years', NULL, 'Female', 'Dog', 'Alif', '01500000000', '  Uttor Madani Nagar, Narayanganj Sadar  ', 'Stray Cat', 'adopted');
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`) VALUES
-(1, 'Moriomer Nesa', 'moriom@pets.com', 'moriom', 'admin');
+(1, 'Moriomer Nesa', 'moriom@pets.com', 'moriom', 'Admin'),
+(2, 'Robiuddin Robi', 'mrrobi040@hotmail.com', 'wJtjir9C8GA', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -104,7 +107,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`) VALUES
 -- Indexes for table `for_review`
 --
 ALTER TABLE `for_review`
-  ADD PRIMARY KEY (`email`) USING BTREE;
+  ADD PRIMARY KEY (`email`,`pet_id`) USING BTREE,
+  ADD KEY `fk1` (`pet_id`);
 
 --
 -- Indexes for table `pet_info`
@@ -126,13 +130,23 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `pet_info`
 --
 ALTER TABLE `pet_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `for_review`
+--
+ALTER TABLE `for_review`
+  ADD CONSTRAINT `fk1` FOREIGN KEY (`pet_id`) REFERENCES `pet_info` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

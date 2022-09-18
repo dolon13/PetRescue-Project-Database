@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
         $res = mysqli_query($conn,$sql);
         
     }
-    $sql = "UPDATE for_review SET status='$status' WHERE id='$id' ";
+    $sql = "UPDATE for_review SET status='$status' WHERE id='$id' and pet_id='$pet_id'";
     
     $result = mysqli_query($conn,$sql);
     if($result==1){

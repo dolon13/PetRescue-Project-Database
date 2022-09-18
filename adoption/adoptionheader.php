@@ -61,21 +61,14 @@
                   Looking For Adoption?
                 </a>
               </li>
-
               <li class="nav-item mx-2">
-                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button" href='../needhelp.php' >
                   Need Help?
                 </a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
-                  Who are we!
-                </a>
-              </li>
-
-              <li class="nav-item mx-2">
-                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">
-                  Donate
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button" href='../petcare.php'>
+                  Pet Care
                 </a>
               </li>
             </ul>

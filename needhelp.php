@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 ?>
 
@@ -56,17 +56,16 @@
               </li>
 
               <li class="nav-item mx-2">
-                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button" href='needhelp.php' >
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button" href="needhelp.php">
                   Need Help?
                 </a>
               </li>
               <li class="nav-item mx-2">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button" href='petcare.php'>
-                  Pet Care
+                  pet care
                 </a>
               </li>
             </ul>
-
             <ul class="navbar-nav d-lg-block d-none">
               <li class="nav-item">
                 
@@ -74,6 +73,7 @@
                 
               </li>
             </ul>
+            
           </div>
         </div>
       </nav>
@@ -88,46 +88,13 @@
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
             <h1 class="text-white pt-3 mt-n5"><span style="color: red;">P</span>etS</h1>
-            <p class="lead text-white mt-3 px-5">Lets Save Poor Animal Lives Around Us.</p>
+            <p class="lead text-white mt-3 px-5">Emergency Vet Service</p>
           </div>
         </div>
       </div>
     </div>
   </header>
-<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
-    <section class="pt-3 pb-4" id="count-stats">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-9 z-index-2 border-radius-xl mx-auto py-3">
-            <div class="row">
-              <div class="col-md-4 position-relative">
-                <div class="p-3 text-center">
-                  <h1 class="text-gradient-secondary"><span id="state1" countTo="300">0</span>+</h1>
-                  <h5 class="mt-3">Rescued Cats</h5>
-                  <p class="text-sm"></p>
-                </div>
-                <hr class="vertical dark">
-              </div>
-              <div class="col-md-4 position-relative">
-                <div class="p-3 text-center">
-                  <h1 class="text-gradient-secondary"> <span id="state2" countTo="100">0</span>+</h1>
-                  <h5 class="mt-3">Rescued Dogs</h5>
-                  <p class="text-sm"></p>
-                </div>
-                <hr class="vertical dark">
-              </div>
-              <div class="col-md-4">
-                <div class="p-3 text-center">
-                  <h1 class="text-gradient-secondary" id="state3" countTo="41">0</h1>
-                  <h5 class="mt-3">Other Rescued</h5>
-                  <p class="text-sm"></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <section class="my-5 py-5">
       <div class="container">
         <div class="row align-items-center">
@@ -137,19 +104,15 @@
                 <div class="front front-background" style="background-image: url(assets/images/cat.png); background-size: cover;">
                   <div class="card-body py-7 text-center">
                     <i class="material-icons text-white text-4xl my-3">touch_app</i>
-                    <h3 class="text-white">Know about <br /> Pets</h3>
-                    <p class="text-white opacity-8">We start this program to help rehabitate homeless poor pets around us. Some poor animals died from malnutritions and lack of care cause.....</p>
+                    <h3 class="text-white">Know about <br /> Pets clinics</h3>
+                    <p class="text-white opacity-8">We start this program to help pet lovers in emergency situation.....</p>
                   </div>
                 </div>
                 <div class="back back-background" style="background-image: url(assets/images/cat.png); background-size: cover;">
                   <div class="card-body pt-7 text-center">
                     <h3 class="text-white">Discover More</h3>
-                    <p class="text-white opacity-8"> there is no one for them where they born. 
-                        But there might be someone amoung us away from there wanted to have a cat or 
-                        dog and would love to care for them love them. We will mitigate the gap between 
-                        that poor animal and that person who might want them. This way we could be able 
-                        to save countless lives.</p>
-                    <a href="#" target="_blank" class="btn btn-white btn-sm w-50 mx-auto mt-3">Join Us</a>
+                    <p class="text-white opacity-8"> Pets should be brought clinics during any kind of sickness. thats why our goal is to help those poor pet lovers who didn't make an appoinment during emergency due to unavailibity of pet clinics...</p>
+                    
                   </div>
                 </div>
               </div>
@@ -157,38 +120,44 @@
           </div>
           <div class="col-lg-6 ms-auto">
             <div class="row justify-content-start">
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <div class="info">
-                  <i class="material-icons text-gradient text-secondary text-3xl">content_copy</i>
-                  <h5 class="font-weight-bolder mt-3">Full Documentation</h5>
-                  <p class="pe-5">We ensure correct documentation of any animal that we rescued and that we successfully manage to rehabitate.</p>
+                  <i class="material-icons text-gradient text-secondary text-4xl">content_copy</i>
+                  <h5 class="font-weight-bolder mt-3">PAW LIFE CARE</h5>
+                  <p class="pe-8">Address: 1/12, Block-G, Lalmatia,Dhaka,Bangladesh
+                                  Contact: +8801909617994
+                                  Clinic hours: 9AM to 11AM and 4PM to 8PM</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info">
                   <i class="material-icons text-gradient text-secondary text-3xl">flip_to_front</i>
-                  <h5 class="font-weight-bolder mt-3">Who can adopt</h5>
-                  <p class="pe-3">
-                    anyone who has prior experience of having pets or 
-                    who do not can adopt a animal as long as our team 
-                    feels eligible the person by assessing him/her with 
-                    numerous questionnaires.
+                  <h5 class="font-weight-bolder mt-3">PRANISHEBA VET</h5>
+                  <p class="pe-6.60">
+                    Address:Haque Tower (8th Floor), JA-28\/8\/D, Mohakhali C\/A,
+                     Ramna, Dhaka Division, Bangladesh, Dhaka Division 1212 
+                    contact: +880 1844-500100
                   </p>
                 </div>
               </div>
             </div>
             <div class="row justify-content-start mt-5">
-              <div class="col-md-6 mt-3">
+              <div class="col-md-8 mt-3">
                 <i class="material-icons text-gradient text-secondary text-3xl">support</i>
-                <h5 class="font-weight-bolder mt-3">Save Life</h5>
-                <p class="pe-5">Our main goal to save as many life of those poor animals as possible. They are same as us one creation of GOD, why they can not be loved ?</p>
+                <h5 class="font-weight-bolder mt-3">VET AND PET CARE</h5>
+                <p class="pe-9">Address: 1/17 Humayun Road (Rashida Villa, 1st Floor), 
+                                Mohammadapur, Dhaka, Dhaka Division 1207 
+                               contact: +880 1948-521400
+                </p>
               </div>
               <div class="col-md-6 mt-3">
                 <div class="info">
                   <i class="material-icons text-gradient text-secondary text-3xl">volunteer_activism</i>
-                  <h5 class="font-weight-bolder mt-3">Volunteer</h5>
+                  <h5 class="font-weight-bolder mt-3">VATERINARY SPECIALIZED HOSPITAL AND DIAGNOSTIC CENTER</h5>
                   <p class="pe-3">
-                    There are lot of good hearted people who volunteered for us to rescue animals and ensure safe home for them. Please do a big applaud for them.
+                    Address: house 47( 2nd Floor), Road 2, Sector 5, 
+                    Uttara, Dhaka, Dhaka, Dhaka Division, Bangladesh, Dhaka Division 1230
+                    contact: +880 1305-843505
                   </p>
                 </div>
               </div>
